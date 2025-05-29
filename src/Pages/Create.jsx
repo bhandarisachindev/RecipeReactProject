@@ -2,24 +2,27 @@ import { nanoid } from "nanoid";
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { recipecontext } from "../Context/RecipeContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 const Create = () => {
   const {register, handleSubmit,reset, formState: { errors } }  =  useForm();
-
+  const navigate =useNavigate();
  const {data,setdata}= useContext(recipecontext);
 
   const submitHandler =(recipe)=>{
     recipe.id = nanoid();
-    console.log(data);
+    recipe.fav = false;
     setdata([...data,recipe]);
-    console.log(data);
     reset();
+    toast.success("Recipe created.");
+    navigate("/recipes");
   }
 
 
   return (
-    <form className="block bg-white flex-col h-max" onSubmit={handleSubmit(submitHandler)}> 
+    <form className="block bg-white flex-col h-max  mt-[90px]" onSubmit={handleSubmit(submitHandler)}> 
       <input className="block border-b outline-0 p-1"
       {...register("image")} type="url" placeholder="Enter Image url"/>
       <small className="text-red-500">Error</small>
@@ -36,8 +39,10 @@ const Create = () => {
       {...register("ingredients")} type="text" placeholder="Write Ingredients Seprated by ,"></textarea>
       <small className="block text-red-500">Error</small>
 
+
+      <p>Category</p>
       <select {...register("category")}>
-        <option value="">Opt 1</option>
+        <option value="unknown">Unknown</option>
         <option value="snacks">Snacks</option>
         <option value="southindian">South Indian</option>
         <option value="chinese">Chinese</option>

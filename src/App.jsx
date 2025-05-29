@@ -1,13 +1,13 @@
-import Navbar from "./Components/Navbar";
-import Mainroutes from "./Routes/Mainroutes"
+  import Navbar from "./Components/Navbar";
+  import Mainroutes from "./Routes/Mainroutes"
 
-const App = () => {
-  return (
-    <div className="bg-[url(../public/bg.svg)] bg-cover bg-center h-screen w-screen ">
-      <Navbar/>
-      <Mainroutes/>
-    </div>
-  )
-}
+  const App = () => {
+    return (
+      <div className="bg-cover bg-center min-h-screen w-full bg-fixed bg-[url('/bg.svg')]">
+        <Navbar/>
+        <Mainroutes/>
+      </div>
+    )
+  }
 
-export default App;
+  export default App;
