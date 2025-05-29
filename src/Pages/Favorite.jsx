@@ -7,7 +7,7 @@ const Favorite = () => {
 
   const {data,setdata} =useContext(recipecontext);
 
-  let favdata =data.map((rec,i)=>{
+  let favdata =data.map((rec)=>{
     if(rec.fav){
        return <Recipecard key={rec.id} value={rec} />
     }
