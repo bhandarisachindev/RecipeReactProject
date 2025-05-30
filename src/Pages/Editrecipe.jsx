@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { recipecontext } from "../Context/RecipeContext";
 import { useForm } from "react-hook-form";
@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const Editrecipe = () => {
   const {id} =useParams();
   const {data,setdata} = useContext(recipecontext);
-
+  const navigate = useNavigate(null);
   const filtedData = data.filter(e=>e.id==id);
 
   const {register , handleSubmit} = useForm({defaultValues:{
@@ -20,11 +20,11 @@ const Editrecipe = () => {
   
   const submitHandle=(e)=>{
     const index =data.findIndex(e=>e.id==id);
-    console.log(data)
     const copydata = [...data];
     copydata[index]={...copydata[index],...e};
     setdata(copydata);
     toast.success("Recipe updated!"); 
+    navigate(`/recipes/details/${id}`);
   }
 
   return (
