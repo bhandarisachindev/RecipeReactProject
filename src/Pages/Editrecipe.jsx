@@ -23,6 +23,7 @@ const Editrecipe = () => {
     const copydata = [...data];
     copydata[index]={...copydata[index],...e};
     setdata(copydata);
+    localStorage.setItem("recipe",JSON.stringify(copydata));
     toast.success("Recipe updated!"); 
     navigate(`/recipes/details/${id}`);
   }

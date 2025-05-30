@@ -6,6 +6,7 @@ import Create from "../Pages/Create"
 import Favorite from "../Pages/Favorite"
 import Viewrecipe from "../Pages/Viewrecipe"
 import Editrecipe from "../Pages/Editrecipe"
+import PageNotFound from "../Pages/PageNotFound"
 
 
 const Mainroutes = () => {
@@ -18,6 +19,7 @@ const Mainroutes = () => {
       <Route path="/favorite" element={<Favorite/>}/>
       <Route path="/recipes/details/:id" element={<Viewrecipe/>}/>
       <Route path="/recipes/edit/:id" element={<Editrecipe/>}/>
+      <Route path="*" element={<PageNotFound/>}/>
     </Routes>
   )
 }

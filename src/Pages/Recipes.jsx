@@ -6,7 +6,7 @@ import Recipecard from "../Components/Recipecard";
 
 const Recipes = () => {
   const { data, setdata } = useContext(recipecontext);
-  
+ 
   const ele = data.map((rec) => (
     <Recipecard key={rec.id} value={rec} />
   ));

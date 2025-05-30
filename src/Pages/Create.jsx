@@ -13,46 +13,52 @@ const Create = () => {
 
   const submitHandler =(recipe)=>{
     recipe.id = nanoid();
-    recipe.fav = false;
-    setdata([...data,recipe]);
-    reset();
+    let newData = [...data];
+      newData.push(recipe);
+    setdata(newData);
+    localStorage.setItem("recipe",JSON.stringify(newData));
     toast.success("Recipe created.");
     navigate("/recipes");
+    reset();
   }
 
 
   return (
-    <form className="block bg-white flex-col h-max  mt-[90px]" onSubmit={handleSubmit(submitHandler)}> 
+  <div className=" flex pt-[90px] align-center justify-center">
+    <form className="block bg-white/30 border-1 flex-col h-max text-white p-10" onSubmit={handleSubmit(submitHandler)}> 
       <input className="block border-b outline-0 p-1"
-      {...register("image")} type="url" placeholder="Enter Image url"/>
-      <small className="text-red-500">Error</small>
+      {...register("image",{ required: "All fields are required." })} type="url" placeholder="Enter Image url"/>
+      
 
-      <input className="block border-b outline-0 p-1"
-      {...register("title")} type="text" placeholder="Title"/>
-      <small className="text-red-500">Error</small>
+      <input className="block border-b outline-0 p-1 mt-[10px]"
+      {...register("title",{ required: "All fields are required." })} type="text" placeholder="Title"/>
+      
 
-      <textarea className="block border-b outline-0 p-1"
-      {...register("description")} type="text" placeholder="Description here...."></textarea>
-      <small className="text-red-500">Error</small>
+      <textarea className="block border-b outline-0 p-1 mt-[10px]"
+      {...register("description",{ required: "All fields are required." })} type="text" placeholder="Description here...."></textarea>
+      
 
-      <textarea className="block border-b outline-0 p-1"
-      {...register("ingredients")} type="text" placeholder="Write Ingredients Seprated by ,"></textarea>
-      <small className="block text-red-500">Error</small>
+      <textarea className="block border-b outline-0 p-1 mt-[10px]"
+      {...register("ingredients",{ required: "All fields are required." })} type="text" placeholder="Write Ingredients Seprated by ,"></textarea>
+      {Object.keys(errors).length > 0 && (
+      <small className="block text-red-900 mt-2">All fields are required.</small>
+    )}
 
 
-      <p>Category</p>
-      <select {...register("category")}>
-        <option value="unknown">Unknown</option>
-        <option value="snacks">Snacks</option>
-        <option value="southindian">South Indian</option>
-        <option value="chinese">Chinese</option>
-        <option value="dessert">Dessert</option>
-        <option value="drinks">Drinks</option>
-      </select>
+      <p className="mt-[10px]">Category</p>
+      <select {...register("category")} className="block border-1 outline-0 ">
+        <option className="bg-gray-700/70" value="unknown">Unknown</option>
+        <option className="bg-gray-700/70" value="snacks">Snacks</option>
+        <option className="bg-gray-700/70" value="southindian">South Indian</option>
+        <option className="bg-gray-700/70" value="chinese">Chinese</option>
+        <option className="bg-gray-700/70" value="dessert">Dessert</option>
+        <option className="bg-gray-700/70" value="drinks">Drinks</option>
+      </select> 
 
-      <button className="px-4 py-2 bg-gray-800 rounded text-white mt-[5px]"
+      <button className="px-4 py-2 bg-white/60 rounded text-lime-800 mt-[20px]"
       >Save</button>
     </form>
+    </div>
   )
 }
 

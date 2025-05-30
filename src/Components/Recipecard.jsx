@@ -10,10 +10,6 @@ const Recipecard = (rec) => {
         alt={rec.value.title}
         className="h-[200px] w-[200px] mx-auto object-cover rounded-md"
       />
-      <span className="flex justify-end px-[20px] text-3xl">
-        <i className="fa-regular fa-heart"></i>
-        <i className="fa-solid fa-heart"></i>
-      </span>
       <p className="text-gray-800 text-4xl  mt-[5px]">{rec.value.title}</p>
     </Link>
   )
