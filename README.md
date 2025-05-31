@@ -1,12 +1,37 @@
-# React + Vite
+# 📄 Recipe App - Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 Live Preview  
+🌐 [Visit the Live App](https://vercel.com/zerosachindevs-projects/recipe-react-project)
 
-Currently, two official plugins are available:
+### 🖼️ Preview Screenshots  
+<img src="./public/createrecipe.png" width="400" style="margin-right: 10px;" />
+&nbsp;&nbsp;
+<img src="./public/Recipes.png" width="400" />
+&nbsp;&nbsp;
+<img src="./public/favorite.png" width="400" style="margin-right: 10px;" />
+&nbsp;&nbsp;
+<img src="./public/home.png" width="400" />
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Data Handling
 
-## Expanding the ESLint configuration
+### Where is data stored?
+Favorite recipes are stored in `localStorage` under the key `"fav"`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### How is data used?
+1. On component load, the Home page fetches `fav` data from `localStorage`.
+2. If the data exists and contains recipes:
+   - It maps over the array and displays each item using the `Recipecard` component.
+3. If the data is `null` or an empty array:
+   - A message is displayed: `"Add Fav recipes to view recipes here."`
+
+---
+
+## ✍️ UI Explanation
+
+### Elements on Home Page:
+
+- **Intro Paragraph**:  
+  A paragraph welcoming the user and describing the app's purpose.
+  ```text
+  Welcome to the Recipe App! Here you can view your favorite recipes, explore new ones, and create your own.
