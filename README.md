@@ -1,14 +1,6 @@
 
-# 📄 Recipe App - Home Page Overview
+# 📄 Recipe App - Overview
 
-## 🧾 Purpose
-The Home page in the Recipe App is designed to provide a user-friendly landing view where users can:
-
-- Read an introductory message about the app.
-- View a list of their favorite recipes.
-- Be prompted to add favorites if none exist.
-
----
 
 ## 📦 Data Handling
 
