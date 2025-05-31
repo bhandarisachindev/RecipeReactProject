@@ -4,7 +4,7 @@ const Favorite = () => {
 
 let favData =localStorage.getItem("fav");
 
-if(favData && favData==[]){
+if(favData){
   favData=JSON.parse(favData);
   const ele = favData.map((rec) => (
     <Recipecard key={rec.id} value={rec}/>
