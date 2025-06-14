@@ -26,12 +26,3 @@ Favorite recipes are stored in `localStorage` under the key `"fav"`.
    - A message is displayed: `"Add Fav recipes to view recipes here."`
 
 ---
-
-## ✍️ UI Explanation
-
-### Elements on Home Page:
-
-- **Intro Paragraph**:  
-  A paragraph welcoming the user and describing the app's purpose.
-  ```text
-  Welcome to the Recipe App! Here you can view your favorite recipes, explore new ones, and create your own.
